@@ -4,7 +4,7 @@ import java.util.List;
 import lombok.Data;
 
 @Data
-public class Identifiers {
+public class IdentifiersOL {
     List<String> isbn13 = null;
     List<String> amazon = null;
     List<String> isbn10 = null;

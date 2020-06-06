@@ -1,4 +1,6 @@
 quarkus:
+  package:
+    type: fast-jar
   application:
     name: home-library-catalog
   http:

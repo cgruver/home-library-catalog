@@ -8,17 +8,17 @@ import lombok.Data;
 
 @Data
 @JsonDeserialize(contentUsing = BookInfoDeserializer.class)
-public class BookInfo {
+public class BookInfoOL {
 
     String isbn;
-    List<Publisher> publishers = null;
-    Identifiers identifiers;
+    List<PublisherOL> publishers = null;
+    IdentifiersOL identifiers;
     String title;
     String url;
     String notes;
     Long numberOfPages;
-    Cover cover;
+    CoverOL cover;
     String publishDate;
     String key;
-    List<Author> authors = null;
+    List<AuthorOL> authors = null;
 }
