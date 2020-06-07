@@ -18,3 +18,10 @@ quarkus:
     dialect: org.hibernate.dialect.MariaDB103Dialect
     database:
       generation: update
+org:
+  cgruver:
+    home_library:
+      catalog:
+        open_library:
+          api:
+            OpenLibrary/mp-rest/url: ${OPEN_LIBRARY_URL}
