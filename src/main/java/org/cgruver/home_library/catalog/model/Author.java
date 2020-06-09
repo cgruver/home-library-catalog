@@ -34,6 +34,6 @@ public class Author extends PanacheEntityBase {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "book_info_id", nullable = false)
     private BookInfo bookInfo;
 }
