@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.cgruver.home_library.catalog.open_library.dto.BookInfoOL;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Map;
 
 public class BookInfoDeserializer extends JsonDeserializer<BookInfoOL> {
@@ -21,8 +22,8 @@ public class BookInfoDeserializer extends JsonDeserializer<BookInfoOL> {
         BookInfoOL bookInfo = null; // new BookInfo();
 
         JsonNode node = p.getCodec().readTree(p);
-        System.out.println(node.toString());
-        Map.Entry<String, JsonNode> nodeData = node.fields().next();
+        Iterator<Map.Entry<String, JsonNode>> fields = node.fields();
+        Map.Entry<String, JsonNode> nodeData = fields.next();
         JsonNode body = nodeData.getValue();
 
         bookInfo = objectMapper.treeToValue(body, BookInfoOL.class);
@@ -30,5 +31,4 @@ public class BookInfoDeserializer extends JsonDeserializer<BookInfoOL> {
 
         return bookInfo;
     }
-
 }
