@@ -4,5 +4,5 @@ metadata:
   name: home-library-catalog-sk
 type: Opaque
 data:
-  DATASOURCE_PWD: aG9tZS1saWJyYXJ5Cg==
-  DATASOURCE_USER: aG9tZS1saWJyYXJ5Cg==
+  DATASOURCE_PWD: aG9tZS1saWJyYXJ5
+  DATASOURCE_USER: aG9tZS1saWJyYXJ5

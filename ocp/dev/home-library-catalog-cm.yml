@@ -4,4 +4,4 @@ metadata:
   name: home-library-catalog-cm
 data:
   OPEN_LIBRARY_URL: https://openlibrary.org
-  RDBMS_URL: jdbc:mariadb:failover://mariadb-galera-0.mariadb-svc.mariadb-galera.svc:3306,mariadb-galera-1.mariadb-svc.mariadb-galera.svc:3306,mariadb-galera-2.mariadb-svc.mariadb-galera.svc:3306/home_library_catalog
+  RDBMS_URL: jdbc:mariadb:failover://mariadb-galera-0.galera-cluster.mariadb-galera.svc:3306,mariadb-galera-1.galera-cluster.mariadb-galera.svc:3306,mariadb-galera-2.galera-cluster.mariadb-galera.svc:3306/home_library_catalog

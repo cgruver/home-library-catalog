@@ -7,7 +7,7 @@ import org.cgruver.home_library.catalog.open_library.BookInfoDeserializer;
 import lombok.Data;
 
 @Data
-@JsonDeserialize(contentUsing = BookInfoDeserializer.class)
+@JsonDeserialize(using = BookInfoDeserializer.class)
 public class BookInfoOL {
 
     String isbn;
