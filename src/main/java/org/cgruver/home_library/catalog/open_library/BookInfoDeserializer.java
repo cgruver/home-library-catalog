@@ -21,6 +21,7 @@ public class BookInfoDeserializer extends JsonDeserializer<BookInfoOL> {
         BookInfoOL bookInfo = null; // new BookInfo();
 
         JsonNode node = p.getCodec().readTree(p);
+        System.out.println(node.toString());
         Map.Entry<String, JsonNode> nodeData = node.fields().next();
         JsonNode body = nodeData.getValue();
 
