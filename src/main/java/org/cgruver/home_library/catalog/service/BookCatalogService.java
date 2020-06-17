@@ -14,6 +14,7 @@ import org.cgruver.home_library.catalog.mapper.BookInfoMapper;
 import org.cgruver.home_library.catalog.model.BookInfo;
 import org.cgruver.home_library.catalog.open_library.api.OpenLibrary;
 import org.cgruver.home_library.catalog.open_library.dto.AuthorOL;
+import org.cgruver.home_library.catalog.open_library.dto.BookInfoDetailOL;
 import org.cgruver.home_library.catalog.open_library.dto.BookInfoOL;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
@@ -34,26 +35,27 @@ public class BookCatalogService {
         bookInfoEntity = BookInfo.getBookInfoByIsbn(isbn);
         if (bookInfoEntity == null) {
             BookInfoOL bookInfoOL = openLibrary.getBookInfo(isbn, "json", "data");
+            BookInfoDetailOL bookInfoDetails = bookInfoOL.getDetails();
             bookInfoDto = new BookInfoDTO();
             ArrayList<AuthorDTO> authors = new ArrayList<AuthorDTO>();
-            for (AuthorOL author : bookInfoOL.getAuthors()) {
+            for (AuthorOL author : bookInfoDetails.getAuthors()) {
                 AuthorDTO dto = new AuthorDTO();
                 dto.setName(author.getName());
                 dto.setOpenLibraryUrl(author.getUrl());
                 authors.add(dto);
             }
             bookInfoDto.setAuthors(authors);
-            bookInfoDto.setCoverImageUrl(bookInfoOL.getCover().getSmall());
+            bookInfoDto.setCoverImageUrl(bookInfoDetails.getCover().getSmall());
             bookInfoDto.setIsbn(bookInfoOL.getIsbn());
-            bookInfoDto.setNumberOfPages(bookInfoOL.getNumberOfPages());
-            bookInfoDto.setOpenLibraryUrl(bookInfoOL.getUrl());
+            bookInfoDto.setNumberOfPages(bookInfoDetails.getNumberOfPages());
+            bookInfoDto.setOpenLibraryUrl(bookInfoDetails.getUrl());
             SimpleDateFormat dateFormatter = new SimpleDateFormat();
             try {
-                bookInfoDto.setPublishDate(dateFormatter.parse(bookInfoOL.getPublishDate()));
+                bookInfoDto.setPublishDate(dateFormatter.parse(bookInfoDetails.getPublishDate()));
             } catch (ParseException e) {
-                throw new BookCatalogException("Failed to parse Publish Date: " + bookInfoOL.getPublishDate());
+                throw new BookCatalogException("Failed to parse Publish Date: " + bookInfoDetails.getPublishDate());
             }
-            bookInfoDto.setTitle(bookInfoOL.getTitle());
+            bookInfoDto.setTitle(bookInfoDetails.getTitle());
             
         } else {
             bookInfoDto = bookInfoMapper.bookInfoEntityToDto(bookInfoEntity);

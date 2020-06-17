@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import org.cgruver.home_library.catalog.open_library.dto.BookInfoDetailOL;
 import org.cgruver.home_library.catalog.open_library.dto.BookInfoOL;
 
 import java.io.IOException;
@@ -21,11 +22,13 @@ public class BookInfoDeserializer extends JsonDeserializer<BookInfoOL> {
     public BookInfoOL deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 
         ObjectMapper objectMapper = new ObjectMapper();
-        BookInfoOL bookInfo = null; // new BookInfo();
+        BookInfoOL bookInfo = new BookInfoOL();
         String isbn = p.nextFieldName();
         System.out.println("ISBN: " + isbn);
         JsonNode node = p.getCodec().readTree(p);
-        JsonNode body = node.get(isbn);
+        //JsonNode body = node.get(isbn);
+        bookInfo.setIsbn(isbn);
+        bookInfo.setDetails(objectMapper.treeToValue(node.get(isbn), BookInfoDetailOL.class));
         //ObjectCodec codec = p.getCodec();
         //TreeNode treeNode = codec.readTree(p);
         //treeNode.fieldNames();
@@ -34,8 +37,8 @@ public class BookInfoDeserializer extends JsonDeserializer<BookInfoOL> {
         //Map.Entry<String, JsonNode> nodeData = fields.next();
         //JsonNode body = nodeData.getValue();
 
-        bookInfo = objectMapper.treeToValue(body, BookInfoOL.class);
-        bookInfo.setIsbn(isbn);
+        //bookInfo = objectMapper.treeToValue(body, BookInfoOL.class);
+        //bookInfo.setIsbn(isbn);
         //bookInfo.setIsbn(nodeData.getKey());
 
         return bookInfo;
