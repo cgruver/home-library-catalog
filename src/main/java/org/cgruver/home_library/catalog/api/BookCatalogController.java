@@ -12,9 +12,8 @@ public class BookCatalogController implements BookCatalogApi {
     @Inject
     private BookCatalogService bookCatalogService;
     @Override
-    public BookInfoDTO saveBookInfo(BookInfoDTO bookInfo) throws BookCatalogException {
-        // TODO Auto-generated method stub
-        return null;
+    public void saveBookInfo(BookInfoDTO bookInfo) throws BookCatalogException {
+        bookCatalogService.saveBookInfo(bookInfo);
     }
 
     @Override

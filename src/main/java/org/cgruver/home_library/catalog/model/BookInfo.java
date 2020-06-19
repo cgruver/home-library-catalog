@@ -49,11 +49,11 @@ public class BookInfo extends PanacheEntityBase {
     private String coverImageUrl;
 
     @Column()
-    private Date publishDate;
+    private String publishDate;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "bookInfo", cascade = CascadeType.ALL)
     @OrderBy("name ASC")
-    private List<Author> authors = null;
+    private List<Author> authors;
 
     public static BookInfo getBookInfoByIsbn(String isbn){
         return find("isbn", isbn).firstResult();
