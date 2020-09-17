@@ -82,14 +82,14 @@
             <version>${org.mapstruct.version}</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-oidc</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-keycloak-authorization</artifactId>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>org.cgruver.home_library</groupId>
             <artifactId>home-library-catalog-client</artifactId>
