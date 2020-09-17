@@ -20,6 +20,7 @@ public class BookInfoDetailOL {
     @JsonProperty("number_of_pages")
     Long numberOfPages;
     CoverOL cover;
+    List<Subjects> subjects = null;
     @JsonProperty("publish_date")
     String publishDate;
     String key;
