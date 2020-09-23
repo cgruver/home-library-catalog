@@ -4,12 +4,14 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
 import lombok.Data;
 
 /**
  * BookInfoDetailOL
  */
 @Data
+@RegisterForReflection
 public class BookInfoDetailOL {
 
     List<PublisherOL> publishers = null;
