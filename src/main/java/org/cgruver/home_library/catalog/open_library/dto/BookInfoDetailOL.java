@@ -2,6 +2,7 @@ package org.cgruver.home_library.catalog.open_library.dto;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.quarkus.runtime.annotations.RegisterForReflection;
@@ -12,6 +13,7 @@ import lombok.Data;
  */
 @Data
 @RegisterForReflection
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BookInfoDetailOL {
 
     List<PublisherOL> publishers = null;

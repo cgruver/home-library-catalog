@@ -5,6 +5,8 @@ quarkus:
     port: 8080
   log:
     level: INFO
+    console:
+      enable: true
   datasource:
     driver: org.mariadb.jdbc.Driver
     url: ${RDBMS_URL}
