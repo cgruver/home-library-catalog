@@ -21,6 +21,7 @@ import org.cgruver.home_library.catalog.open_library.dto.AuthorOL;
 import org.cgruver.home_library.catalog.open_library.dto.BookInfoDetailOL;
 import org.cgruver.home_library.catalog.open_library.dto.BookInfoOL;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
+import org.jboss.logging.Logger;
 
 @ApplicationScoped
 public class BookCatalogService {
@@ -35,7 +36,8 @@ public class BookCatalogService {
     @Audited
     public BookInfoDTO getBookInfoByIsbn(String isbn) throws BookCatalogException {
 
-        System.out.println("getBookInfoByIsbn method invoked!");
+        final Logger LOG = Logger.getLogger(BookCatalogService.class);
+        LOG.info("getBookInfoByIsbn method invoked!");
         BookInfoDTO bookInfoDto = null;
         BookInfo bookInfoEntity = null;
         bookInfoEntity = BookInfo.getBookInfoByIsbn(isbn);
