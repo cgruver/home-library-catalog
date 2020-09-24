@@ -9,6 +9,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
+import org.cgruver.home_library.catalog.aop.Audited;
 import org.cgruver.home_library.catalog.client.BookCatalogException;
 import org.cgruver.home_library.catalog.client.dto.AuthorDTO;
 import org.cgruver.home_library.catalog.client.dto.BookInfoDTO;
@@ -31,12 +32,15 @@ public class BookCatalogService {
     @RestClient
     private OpenLibrary openLibrary;
 
+    @Audited
     public BookInfoDTO getBookInfoByIsbn(String isbn) throws BookCatalogException {
 
+        System.out.println("getBookInfoByIsbn method invoked!");
         BookInfoDTO bookInfoDto = null;
         BookInfo bookInfoEntity = null;
         bookInfoEntity = BookInfo.getBookInfoByIsbn(isbn);
         if (bookInfoEntity == null) {
+            isbn = "ISBN:" + isbn;
             BookInfoOL bookInfoOL = openLibrary.getBookInfo(isbn, "json", "data");
             BookInfoDetailOL bookInfoDetails = bookInfoOL.getDetails();
             bookInfoDto = new BookInfoDTO();
