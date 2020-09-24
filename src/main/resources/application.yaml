@@ -3,6 +3,8 @@ quarkus:
     name: home-library-catalog
   http:
     port: 8080
+  log:
+    level: INFO
   datasource:
     driver: org.mariadb.jdbc.Driver
     url: ${RDBMS_URL}
