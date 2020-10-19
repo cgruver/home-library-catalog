@@ -3,6 +3,12 @@ quarkus:
     name: home-library-catalog
   http:
     port: 8080
+    cors: 
+      origins: ${CORS_ORIGINS}
+      methods: "GET,POST"
+      headers: "Content-Type, Accept, X-Requested-With, remember-me"
+      access-control-max-age: "3600"
+      access-control-allow-credentials: true
   log:
     level: INFO
     console:
@@ -20,10 +26,11 @@ quarkus:
     dialect: org.hibernate.dialect.MariaDB103Dialect
     database:
       generation: update
-org:
-  cgruver:
-    home_library:
-      catalog:
-        open_library:
-          api:
-            OpenLibrary/mp-rest/url: ${OPEN_LIBRARY_URL}
+open_library_api/mp-rest/url: ${OPEN_LIBRARY_URL}
+# org:
+#   cgruver:
+#     home_library:
+#       catalog:
+#         open_library:
+#           api:
+#             OpenLibrary/mp-rest/url: ${OPEN_LIBRARY_URL}

@@ -2,9 +2,9 @@ package org.cgruver.home_library.catalog.api;
 
 import javax.inject.Inject;
 
-import org.cgruver.home_library.catalog.client.BookCatalogException;
-import org.cgruver.home_library.catalog.client.api.BookCatalogApi;
-import org.cgruver.home_library.catalog.client.dto.BookInfoDTO;
+import org.cgruver.home_library.catalog.rest.BookCatalogException;
+import org.cgruver.home_library.catalog.rest.api.BookCatalogApi;
+import org.cgruver.home_library.catalog.rest.dto.BookInfoDTO;
 import org.cgruver.home_library.catalog.service.BookCatalogService;
 
 public class BookCatalogController implements BookCatalogApi {

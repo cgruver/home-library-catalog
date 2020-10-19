@@ -49,7 +49,7 @@ public class BookInfo extends PanacheEntityBase {
     private String coverImageUrl;
 
     @Column()
-    private String publishDate;
+    private Date publishDate;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "bookInfo", cascade = CascadeType.ALL)
     @OrderBy("name ASC")

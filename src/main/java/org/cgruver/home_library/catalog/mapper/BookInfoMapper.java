@@ -1,7 +1,7 @@
 package org.cgruver.home_library.catalog.mapper;
 
-import org.cgruver.home_library.catalog.client.dto.AuthorDTO;
-import org.cgruver.home_library.catalog.client.dto.BookInfoDTO;
+import org.cgruver.home_library.catalog.rest.dto.AuthorDTO;
+import org.cgruver.home_library.catalog.rest.dto.BookInfoDTO;
 import org.cgruver.home_library.catalog.model.Author;
 import org.cgruver.home_library.catalog.model.BookInfo;
 import org.mapstruct.Mapper;

@@ -11,7 +11,7 @@ import org.cgruver.home_library.catalog.open_library.dto.BookInfoOL;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 @Path("/api")
-@RegisterRestClient
+@RegisterRestClient(configKey = "open_library_api")
 @ApplicationScoped
 public interface OpenLibrary {
     
