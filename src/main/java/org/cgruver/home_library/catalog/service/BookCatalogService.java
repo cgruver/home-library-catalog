@@ -1,8 +1,5 @@
 package org.cgruver.home_library.catalog.service;
 
-import java.sql.Date;
-import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,13 +56,7 @@ public class BookCatalogService {
             bookInfoDto.setIsbn(bookInfoOL.getIsbn());
             bookInfoDto.setNumberOfPages(bookInfoDetails.getNumberOfPages());
             bookInfoDto.setOpenLibraryUrl(bookInfoDetails.getUrl());
-            try {
-                LocalDate publishDate = LocalDate.parse(bookInfoDetails.getPublishDate());
-                bookInfoDto.setPublishDate(Date.valueOf(publishDate));
-            } catch(DateTimeParseException e) {
-                throw new BookCatalogException("Failed to parse Publish Date: " + bookInfoDetails.getPublishDate());
-            }
-            //bookInfoDto.setPublishDate(bookInfoDetails.getPublishDate());
+            bookInfoDto.setPublishDate(bookInfoDetails.getPublishDate());
             bookInfoDto.setTitle(bookInfoDetails.getTitle());
             
         } else {

@@ -1,6 +1,5 @@
 package org.cgruver.home_library.catalog.model;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -49,7 +48,7 @@ public class BookInfo extends PanacheEntityBase {
     private String coverImageUrl;
 
     @Column()
-    private Date publishDate;
+    private String publishDate;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "bookInfo", cascade = CascadeType.ALL)
     @OrderBy("name ASC")
