@@ -3,7 +3,7 @@ quarkus:
     name: home-library-catalog
   http:
     port: 8080
-    cors: 
+    cors:
       origins: ${CORS_ORIGINS}
       methods: "GET,POST"
       headers: "Content-Type, Accept, X-Requested-With, remember-me"
@@ -14,12 +14,14 @@ quarkus:
     console:
       enable: true
   datasource:
-    driver: org.mariadb.jdbc.Driver
-    url: ${RDBMS_URL}
-    min-size: 5
-    max-size: 20
-    initial-size: 5
-    validation-query-sql: SELECT 1
+    db-kind: mariadb
+    jdbc:
+      driver: org.mariadb.jdbc.Driver
+      url: ${RDBMS_URL}
+      min-size: 5
+      max-size: 20
+      initial-size: 5
+      validation-query-sql: SELECT 1
     username: ${DATASOURCE_USER}
     password: ${DATASOURCE_PWD}
   hibernate-orm:
